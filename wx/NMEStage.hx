@@ -2,8 +2,7 @@ package wx;
 
 import wx.Window;
 import wx.EventID;
-import nme.display.ManagedStage;
-
+import openfl.display.ManagedStage;
 
 class NMEStage extends GLCanvas
 {
@@ -16,7 +15,7 @@ class NMEStage extends GLCanvas
       super(inHandle);
       var me = this;
       mLastValue = 0;
-      stage = nme.Lib.createManagedStage(inWidth,inHeight);
+      stage = openfl.Lib.createManagedStage(inWidth,inHeight);
       stage.onQuit = App.quit;
       stage.beginRender = me.makeCurrent;
       stage.endRender = me.flip;
@@ -111,7 +110,7 @@ class NMEStage extends GLCanvas
 
    function render(_)
    {
-      stage.nmeRender(true);
+      stage.__render(true);
    }
 
    public static function create(inParent:Window,?inID:Int,?inPosition:Position,
