@@ -69,7 +69,7 @@ class ApplicationMain {
 			::end::
 			
 			#if openfl
-			//stage = OpenFLStage.create (frame, null, null, { width: ::WIN_WIDTH::, height: ::WIN_HEIGHT:: });
+			stage = OpenFLStage.create (frame, null, null, { width: ::WIN_WIDTH::, height: ::WIN_HEIGHT:: });
 			#end
 			
 			var hasMain = false;
