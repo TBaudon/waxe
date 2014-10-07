@@ -19,3 +19,4 @@ lime rebuild waxe windows
 - [NME + wxWindows](http://www.joshuagranick.com/blog/2012/02/15/nme-wxwindows/)
 - [Waxe: NMEStage](http://nickholder.wordpress.com/2012/06/13/waxe-nmestage/)
 - [quaxe.org](http://quaxe.org/)
+- [wxWidget tutorials](http://zetcode.com/gui/wxwidgets/)
