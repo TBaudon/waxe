@@ -65,5 +65,19 @@ value wx_menu_append_separator(value inMenu)
 
 DEFINE_PRIM(wx_menu_append_separator,1)
 
+value wx_menu_append_sub_menu(value inMenu, value addedMenu, value inLabel, value inHelp)
+{
+	wxMenu *menu;
+	if (ValueToWX(inMenu, menu))
+	{
+		wxMenu *subMenu;
+		ValueToWX(addedMenu, subMenu);
+		menu->AppendSubMenu(subMenu, Val2Str(inLabel), Val2Str(inHelp));
+	}
+	return alloc_null();
+}
+
+DEFINE_PRIM(wx_menu_append_sub_menu, 4);
+
 int link_Menu() { return 0; }
 
