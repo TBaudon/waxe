@@ -7,8 +7,8 @@ class MDIParentFrame extends Frame
 						?inPosition:{x:Float,y:Float},
                    ?inSize:{width:Int,height:Int}, ?inStyle:Int )
    {
-      var handle = wx_mdi_parent_frame_create(
-			[inParent==null ? null : inParent.wxHandle,inID,inTitle,inPosition,inSize, inStyle] );
+	   var a : Array<Dynamic> = [inParent == null ? null : inParent.wxHandle, inID, inTitle, inPosition, inSize, inStyle] ;
+      var handle = wx_mdi_parent_frame_create(a);
       return new MDIParentFrame(handle);
    }
 

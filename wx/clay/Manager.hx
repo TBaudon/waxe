@@ -2,7 +2,7 @@ package wx.clay;
 
 class Manager
 {
-   public var root(wxGetRoot,null):Container;
+   public var root(get,null):Container;
 
    var mHandle:Dynamic;
    function _wx_deleted() { mHandle=null; }
@@ -15,7 +15,7 @@ class Manager
       root.wxHandle = wx_clay_man_init_root_container(mHandle,root);
    }
 
-   function wxGetRoot():Container
+   function get_root():Container
    {
       return wx_clay_man_get_root(mHandle);
    }

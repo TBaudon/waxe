@@ -294,7 +294,7 @@ public:
 
    ~FrameContainer()
    {
-      mFrame->RemoveEventHandler(this);
+       mFrame->RemoveEventHandler(this);
       delete mChild;
    }
 
@@ -643,10 +643,10 @@ public:
 
       if (mSnoopWindow!=window)
       {
-         if (mSnoopWindow)
+        if (mSnoopWindow)
             mSnoopWindow->RemoveEventHandler(this);
          mSnoopWindow = window;
-         if (mSnoopWindow)
+        if (mSnoopWindow)
             mSnoopWindow->PushEventHandler(this);
       }
 
@@ -688,16 +688,16 @@ public:
       wxPoint mouse = inEvent.GetPosition();
       if (ButtonTest(inEvent))
       {
-         if (mSnoopWindow)
-            mSnoopWindow->SetCursor(0);
+         /*if (mSnoopWindow)
+            mSnoopWindow->SetCursor(0);*/
       }
       else if (mSnoopWindow && (mDragOff[0].Contains(mouse) && CanRemove() ||
                            mDragOff[1].Contains(mouse) ) )
       {
-         mSnoopWindow->SetCursor( wxCURSOR_SIZING );
+        /* mSnoopWindow->SetCursor( wxCURSOR_SIZING );*/
       }
-      else if (mSnoopWindow)
-         mSnoopWindow->SetCursor(0);
+      /*else if (mSnoopWindow)
+         mSnoopWindow->SetCursor(0);*/
 
    }
 
@@ -766,7 +766,7 @@ public:
                DoCapture();
                if (mSnoopWindow)
                {
-                  mSnoopWindow->SetCursor( 0 );
+                  /*mSnoopWindow->SetCursor( 0 );*/
                }
             }
             return;
@@ -778,14 +778,14 @@ public:
          DoCapture();
          mDragOffing = 0;
          mDragOffStart = inEvent.GetPosition();
-         mSnoopWindow->SetCursor( wxCURSOR_SIZING );
+         /*mSnoopWindow->SetCursor( wxCURSOR_SIZING );*/
       }
       else if (mDragOff[1].Contains(mouse) )
       {
          DoCapture();
          mDragOffing = 1;
          mDragOffStart = inEvent.GetPosition();
-         mSnoopWindow->SetCursor( wxCURSOR_SIZING );
+        /* mSnoopWindow->SetCursor( wxCURSOR_SIZING );*/
       }
       else
          inEvent.Skip();
@@ -814,7 +814,7 @@ public:
       {
          DoRelease();
          mDragOffing = -1;
-         mSnoopWindow->SetCursor(0);
+        /* mSnoopWindow->SetCursor(0);*/
       }
       else
          inEvent.Skip();
@@ -871,7 +871,7 @@ public:
             DoRelease();
             int do_float = mDragOffing;
             mDragOffing = -1;
-            mSnoopWindow->SetCursor(0);
+          /*  mSnoopWindow->SetCursor(0);*/
             Container *c = GetCurrentContainer(do_float);
             c->RecordSize(stFloating,c->Rect());
             GetManager()->FloatContainer( GetCurrentContainer(do_float) );
@@ -936,8 +936,8 @@ public:
    {
       ButtonRelease();
       // TODO : this does not seem to work on wxMac
-      if (mSnoopWindow)
-         mSnoopWindow->SetCursor(0);
+      /*if (mSnoopWindow)
+        /* mSnoopWindow->SetCursor(0);*/
    }
 
    void OnLeave(wxMouseEvent &inEvent)
@@ -2418,7 +2418,8 @@ public:
       else
       {
          if (StopHit(inEvt)>=0 && mSnoopWindow)
-            mSnoopWindow->SetCursor( mHorizontal ?  wxCURSOR_SIZEWE  : wxCURSOR_SIZENS );
+           /* mSnoopWindow->SetCursor( mHorizontal ?  wxCURSOR_SIZEWE  : wxCURSOR_SIZENS );*/
+		   return;
          else
          {
             super::DoMouseMove(inEvt);
@@ -2431,7 +2432,7 @@ public:
    {
       if (mDragging)
       {
-         mSnoopWindow->SetCursor(0);
+        /* mSnoopWindow->SetCursor(0);*/
          mDragging = false;
          DoRelease();
       }
@@ -2446,7 +2447,7 @@ public:
       int stop = StopHit(inEvent);
       if (stop>=0)
       {
-         mSnoopWindow->SetCursor( mHorizontal ?  wxCURSOR_SIZEWE  : wxCURSOR_SIZENS );
+        /* mSnoopWindow->SetCursor( mHorizontal ?  wxCURSOR_SIZEWE  : wxCURSOR_SIZENS );*/
          mDragging = true;
          mDragStop = stop;
 
@@ -2751,7 +2752,7 @@ public:
       if (super::mSnoopWindow)
       {
          wxRect r = super::Rect();
-         super::mSnoopWindow->SetCursor(0);
+        /* super::mSnoopWindow->SetCursor(0);*/
       }
 
       int h = HitRect(inEvent);

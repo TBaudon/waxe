@@ -31,15 +31,15 @@ class Rect
    function get_bottom() { return y+height; }
    function set_bottom(b:Int) { height = b-y; return b;}
 
-   public var topLeft(get_topLeft,set_topLeft) : Point;
+   public var topLeft(get,set) : Point;
    function get_topLeft() { return new Point(x,y); }
    function set_topLeft(p:Point) { x=p.x;y=p.y; return p.clone(); }
 
-   public var size(get_topLeft,set_topLeft) : Point;
+   public var size(get,set) : Point;
    function get_size() { return new Point(width,height); }
    function set_size(p:Point) { width=p.x;height=p.y; return p.clone(); }
 
-   public var bottomRight(get_bottomRight,set_bottomRight) : Point;
+   public var bottomRight(get,set) : Point;
    function get_bottomRight() { return new Point(x+width,y+height); }
    function set_bottomRight(p:Point)
    {

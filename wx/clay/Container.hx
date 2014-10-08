@@ -2,13 +2,13 @@ package wx.clay;
 
 class Container
 {
-   public var parent(wxGetParent,null) : Container;
-   public var manager(wxGetManager,null) : Manager;
-   public var shown(wxGetShown,wxSetShown) : Bool;
-   public var rect(wxGetRect,wxSetRect) : wx.Rect;
-   public var window(wxGetWindow,null) : wx.Window;
-   public var minWidth(wxGetMinWidth,wxSetMinWidth) : Int;
-   public var minHeight(wxGetMinHeight,wxSetMinHeight) : Int;
+   public var parent(get,null) : Container;
+   public var manager(get,null) : Manager;
+   public var shown(get,set) : Bool;
+   public var rect(get,set) : wx.Rect;
+   public var window(get,null) : wx.Window;
+   public var minWidth(get,set) : Int;
+   public var minHeight(get,set) : Int;
 
    public var wxHandle:Dynamic;
    function _wx_deleted() { wxHandle=null; }
@@ -47,21 +47,21 @@ class Container
        return container;
    }
 
-   public function wxGetParent() : Container { return null; }
-   public function wxGetManager() : Manager { return null; }
+   public function get_parent() : Container { return null; }
+   public function get_manager() : Manager { return null; }
 
-   public function wxGetShown() : Bool { return false; }
-   public function wxSetShown(inShow:Bool) : Bool { return false; }
+   public function get_shown() : Bool { return false; }
+   public function set_shown(inShow:Bool) : Bool { return false; }
 
-   public function wxGetRect() : wx.Rect { return null; }
-   public function wxSetRect(inRect:wx.Rect) : wx.Rect { return null; }
+   public function get_rect() : wx.Rect { return null; }
+   public function set_rect(inRect:wx.Rect) : wx.Rect { return null; }
 
-   public function wxGetWindow() : wx.Window { return null; }
+   public function get_window() : wx.Window { return null; }
 
-   function wxGetMinWidth() : Int { return wx_container_get_width(wxHandle,stMin); }
-   function wxSetMinWidth(inW:Int) : Int { return wx_container_set_width(wxHandle,stMin,inW); return inW; }
-   function wxGetMinHeight() : Int { return wx_container_get_height(wxHandle,stMin); }
-   function wxSetMinHeight(inH:Int) : Int { return wx_container_set_height(wxHandle,stMin,inH); return inH; }
+   function get_minWidth() : Int { return wx_container_get_width(wxHandle,stMin); }
+   function set_minWidth(inW:Int) : Int { return wx_container_set_width(wxHandle,stMin,inW); return inW; }
+   function get_minHeight() : Int { return wx_container_get_height(wxHandle,stMin); }
+   function set_minHeight(inH:Int) : Int { return wx_container_set_height(wxHandle,stMin,inH); return inH; }
 
 
    public static function wxCreate() { return new Container(); }
