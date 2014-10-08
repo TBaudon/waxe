@@ -37,7 +37,6 @@ class EventHandler
 	*/
    function HandleEvent(event:Dynamic)
    {
-
    }
 
    static var wx_set_window_handler = Loader.load("wx_set_window_handler",2);

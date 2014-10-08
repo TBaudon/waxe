@@ -4,15 +4,16 @@ import wx.Window;
 
 class StaticBox extends Window
 {
-   public static function create(inParent:Window, ?inID:Null<Int>, inText:String="",
+	public static function create(inParent:Window, ?inID:Null<Int>, inText:String="",
 	                ?inPosition:Position,
                    ?inSize:Size, ?inStyle:Int )
    {
 		if (inParent==null)
 			throw Error.INVALID_PARENT;
-      var handle = wx_static_box_create(
-			[inParent.wxHandle,inID,inText,inPosition,inSize, inStyle] );
-      return new StaticBox(handle);
+		
+		var a : Array<Dynamic> = [inParent.wxHandle, inID, inText, inPosition, inSize, inStyle];
+		var handle = wx_static_box_create(a);
+		return new StaticBox(handle);
    }
 
 

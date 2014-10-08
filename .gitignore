@@ -35,6 +35,8 @@
 /project/obj/mscv16xp/b07fafc5_TextCtrl.obj
 /project/obj/mscv16xp/b07fafc5_Timer.obj
 /project/obj/mscv16xp/b07fafc5_Window.obj
+/project/obj/mscvxp/*.obj
+/project/obj/mscvxp/*
 /project/obj/mscvxp/a8f82e9c_Container.obj
 /project/obj/mscvxp/a8f82e9c_HintWindow.obj
 /project/obj/mscvxp/a8f82e9c_Manager.obj

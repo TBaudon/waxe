@@ -26,10 +26,14 @@ class Menu extends EventHandler
    {
       wx_menu_append_separator(wxHandle);
    }
-
+	public function appendSubMenu(inMenu:Menu, inLabel:String, inHelp:String="")
+	{
+		wx_menu_append_sub_menu(wxHandle, inMenu.wxHandle, inLabel, inHelp);
+	}
 
    static var wx_menu_create = Loader.load("wx_menu_create",2);
-   static var wx_menu_append = Loader.load("wx_menu_append",5);
+   static var wx_menu_append = Loader.load("wx_menu_append", 5);
+   static var wx_menu_append_sub_menu = Loader.load("wx_menu_append_sub_menu", 4);
    static var wx_menu_append_separator = Loader.load("wx_menu_append_separator",1);
 }
 
